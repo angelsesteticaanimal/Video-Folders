@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Video-Folders"
+rootProject.name = "VideoFoldersStable"
 include(":app")
