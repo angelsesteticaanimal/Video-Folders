@@ -14,12 +14,6 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-        }
-    }
 }
 
 dependencies {
