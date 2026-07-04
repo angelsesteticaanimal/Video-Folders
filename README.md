@@ -1,26 +1,19 @@
-# Video Folders — demo Android
+# Video Folders
 
-Aplicativo Android em Kotlin para reproduzir automaticamente todos os vídeos de uma pasta escolhida no celular.
+Este projeto reproduz vídeos em tela cheia a partir de pastas selecionadas e inclui um modo tipo "bobinas" (reels). Possui crossfade visual e crossfade de áudio suave entre vídeos.
 
-## Recursos
+Como testar localmente
 
-- Nome do app: **Video Folders**
-- Barra superior com texto **Video Folders** em neon piscando continuamente
-- Reprodução em tela cheia
-- Leitura de vídeos de uma pasta escolhida pelo usuário
-- Loop automático de todos os vídeos da pasta
-- Sem controles aparentes durante a reprodução
-- Tela sempre ligada enquanto o app está aberto
-- Suporte a `.mp4`, `.mov`, `.mkv`, `.webm`, `.3gp`, `.m4v` e `.avi`
+1. Instale o Flutter na sua máquina: https://flutter.dev/docs/get-started/install
+2. Clone este repositório e entre na pasta:
+   git clone https://github.com/angelsesteticaanimal/Video-Folders.git
+   cd Video-Folders
+3. Gere os arquivos de plataforma (se ainda não existirem):
+   flutter create --org com.angelsesteticaanimal .
+4. Baixe dependências e rode no dispositivo/emulador:
+   flutter pub get
+   flutter run
 
-## Como usar
+Build (APK via Actions)
 
-1. Instale o APK no celular.
-2. Abra o app **Video Folders**.
-3. Toque em **Escolher pasta**.
-4. Selecione a pasta dos vídeos.
-5. O app inicia a reprodução automática e em loop.
-
-## Observação
-
-Este pacote contém o projeto Android pronto para compilação. Para gerar o APK é necessário um ambiente com Android SDK/Gradle ou Android Studio.
+O repositório inclui um workflow GitHub Actions que gera um APK debug e o disponibiliza como artifact. Abra o run do workflow e baixe o arquivo app-debug.apk quando o job terminar.
