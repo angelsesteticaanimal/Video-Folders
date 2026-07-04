@@ -13,11 +13,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
+      -       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.10.6'
           cache: true
+
+      - name: Configure Flutter non-interactive
+        run: |
+          # evita prompts de telemetria / primeira execução interativa
+          flutter --disable-telemetry || true
+          flutter config --no-analytics || true
+          # força o Flutter a baixar/instalar componentes e mostrar versão
+          flutter --version
 
       - name: Ensure Flutter project scaffolding
         run: |
