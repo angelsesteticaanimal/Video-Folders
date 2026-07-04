@@ -1,0 +1,14 @@
+name: video_folders
+description: App que reproduz vídeos em tela cheia a partir de pastas e modo 'bobinas'.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  video_player: ^2.6.0
+  file_picker: ^5.2.0
+  permission_handler: ^10.4.0
