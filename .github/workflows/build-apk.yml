@@ -1,25 +1,37 @@
-name: Build APK
+name: Android CI - build debug APK
 
 on:
-  workflow_dispatch:
   push:
+    branches: [ add/audio-crossfade, main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+  build-apk:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          distribution: temurin
-          java-version: 17
+          flutter-version: 'stable'
 
-      - name: Build APK
-        run: gradle assembleDebug
+      - name: Ensure Flutter project scaffolding
+        run: |
+          if [ ! -d "android" ]; then
+            flutter create --org com.angelsesteticaanimal .
+          fi
 
-      - uses: actions/upload-artifact@v4
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build debug APK
+        run: flutter build apk --debug --no-tree-shake-icons
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
-          name: VideoFoldersStable
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: app-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
